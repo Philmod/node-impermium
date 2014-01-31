@@ -3,6 +3,8 @@ var superagent = require('superagent')
 
 exports.API_ROOT = "https://api.impermium.com/4.0/";
 exports.API_KEY = null;
+exports.ACCESS_HEADER_KEY = '';
+exports.ACCESS_HEADER_VALUE = '';
 
 exports.request = function(api, params, fn) {
   var url = exports.API_ROOT + path.join(exports.API_KEY, api);
@@ -32,6 +34,8 @@ exports.request = function(api, params, fn) {
     .post(url)
     .set('Content-Type', 'application/json')
     .set('Accept', 'application/json')
+    .set(exports.ACCESS_HEADER_KEY, exports.ACCESS_HEADER_VALUE)
+    .set()
     .send(params)
     .end(function(err, res) {
       if (err) return fn(err);
