@@ -35,7 +35,6 @@ exports.request = function(api, params, fn) {
     .set('Content-Type', 'application/json')
     .set('Accept', 'application/json')
     .set(exports.ACCESS_HEADER_KEY, exports.ACCESS_HEADER_VALUE)
-    .set()
     .send(params)
     .end(function(err, res) {
       if (err) return fn(err);
